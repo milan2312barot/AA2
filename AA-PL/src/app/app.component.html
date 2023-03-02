@@ -1,0 +1,26 @@
+<h1>Welcome {{userName}}</h1>
+<h2>{{userName}} your Email Id {{userEmail}}</h2>
+<img src="/assets/Picture1.png" class="imgg" alt="Photo">
+
+<input id="categoryId" type="text" placeholder="Enter Id" value="categoryId" [(ngModel)]="categoryId">
+<input id="categoryName" type="text" placeholder="Enter Name" value="categoryName" [(ngModel)]="categoryName">
+<button mat-raised-button class="button" (click)="GetAllCategories()">Get All Categories</button>
+<button mat-raised-button class="button" (click)="GetAllCategoryById(categoryId)">Get Category By Id</button>
+<button mat-raised-button class="button" (click)="UpdateCategory(categoryId,categoryName)">Update Category</button>
+<button mat-raised-button class="button" (click)="DeleteCategory(categoryId)">Delete Category</button>
+<button mat-raised-button class="button" (click)="AddCategory(categoryName)">Add Category</button>
+<div>
+<div *ngFor="let category of categories">
+  {{category.categoryId}}- {{category.categoryName}}
+</div>
+<hr *ngIf="categories !== null && categories !== undefined">
+</div>
+
+<div *ngIf="categoryById !== null && categoryById !== undefined">
+  {{categoryById.categoryId}}- {{categoryById.categoryName}}
+  <hr *ngIf="categoryById.categoryId !== null && categoryById.categoryName !== undefined">
+</div>
+
+<router-outlet></router-outlet>
+
+
